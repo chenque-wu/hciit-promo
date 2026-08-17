@@ -70,14 +70,27 @@
   /* ────────── Hero 入场动画 ────────── */
   function playHero() {
     gsap.fromTo(".hero-watermark span", { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 1.8, ease: "power2.out" });
-    gsap.timeline({ defaults: { ease: "power3.out" } })
-      .fromTo(".hero-logo", { opacity: 0, scale: 0.6, y: -18 }, { opacity: 1, scale: 1, y: 0, duration: 1.1 }, 0.05)
-      .fromTo(".hero-eyebrow", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.9 }, 0.15)
-      .fromTo(".ht-line", { opacity: 0, y: 74 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.14 }, 0.25)
-      .fromTo(".hero-sub", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.75)
-      .fromTo(".hero-actions", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9 }, 0.9)
-      .fromTo(".hero-meta", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.05)
-      .fromTo(".scroll-cue", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.15);
+    gsap.fromTo(".hero-sweep", { xPercent: -130 }, { xPercent: 130, duration: 2.4, ease: "power2.inOut", delay: 1.1 });
+    if (window.SplitText && !reduced) {
+      var heroSplit = new SplitText("#heroTitle", { type: "chars", charsClass: "hch" });
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero-logo", { opacity: 0, scale: 0.6, y: -18 }, { opacity: 1, scale: 1, y: 0, duration: 1.1 }, 0.05)
+        .fromTo(".hero-eyebrow", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.9 }, 0.15)
+        .fromTo(heroSplit.chars, { opacity: 0, y: 64, filter: "blur(10px)", rotateX: -55 }, { opacity: 1, y: 0, filter: "blur(0px)", rotateX: 0, duration: 1.05, stagger: 0.04 }, 0.3)
+        .fromTo(".hero-sub", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.95)
+        .fromTo(".hero-actions", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9 }, 1.1)
+        .fromTo(".hero-meta", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.25)
+        .fromTo(".scroll-cue", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.35);
+    } else {
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero-logo", { opacity: 0, scale: 0.6, y: -18 }, { opacity: 1, scale: 1, y: 0, duration: 1.1 }, 0.05)
+        .fromTo(".hero-eyebrow", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.9 }, 0.15)
+        .fromTo(".ht-line", { opacity: 0, y: 74 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.14 }, 0.25)
+        .fromTo(".hero-sub", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.75)
+        .fromTo(".hero-actions", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9 }, 0.9)
+        .fromTo(".hero-meta", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.05)
+        .fromTo(".scroll-cue", { opacity: 0 }, { opacity: 1, duration: 1 }, 1.15);
+    }
   }
 
   /* ────────── Hero 轮播 ────────── */
@@ -116,6 +129,34 @@
     gsap.fromTo(el, { opacity: 0, y: 54 }, {
       opacity: 1, y: 0, duration: 1.05, ease: "power3.out",
       scrollTrigger: { trigger: el, start: "top 88%", once: true }
+    });
+  });
+
+  /* ────────── 标题逐字浮现 ────────── */
+  if (window.SplitText && !reduced) {
+    gsap.utils.toArray(".section-head h2, .story-title").forEach(function (h2) {
+      var s = new SplitText(h2, { type: "chars", charsClass: "sch" });
+      gsap.fromTo(s.chars, { opacity: 0, y: 36, filter: "blur(6px)" }, {
+        opacity: 1, y: 0, filter: "blur(0px)", duration: 0.85, ease: "power3.out", stagger: 0.028,
+        scrollTrigger: { trigger: h2, start: "top 88%", once: true }
+      });
+    });
+  }
+
+  /* ────────── 叙事图片内视差 ────────── */
+  gsap.utils.toArray(".story-figure img").forEach(function (img) {
+    gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
+  });
+
+  /* ────────── 全景图模糊转清晰 ────────── */
+  gsap.fromTo(".pano img", { filter: "blur(10px) brightness(0.85)" }, { filter: "blur(0px) brightness(0.92)", duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: ".pano", start: "top 88%", once: true } });
+
+  /* ────────── 优势卡片光斑跟随鼠标 ────────── */
+  document.querySelectorAll(".adv-card").forEach(function (card) {
+    card.addEventListener("mousemove", function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      card.style.setProperty("--my", (e.clientY - r.top) + "px");
     });
   });
 

@@ -393,6 +393,20 @@ html:not(.js) .scroll-cue, html:not(.js) .site-head { opacity: 1; }
   .honor-card, .model-card { padding: 26px 20px; }
 }
 
+/* ═══ 标题金色流动 ═══ */
+.section-head h2 { background-size: 220% auto; animation: goldFlow 7s linear infinite; }
+@keyframes goldFlow { 0% { background-position: 0% center; } 100% { background-position: -220% center; } }
+
+/* ═══ 优势卡片光斑 ═══ */
+.adv-card::after {
+  content: ""; position: absolute; width: 340px; height: 340px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(216,180,90,0.22), transparent 62%);
+  left: var(--mx, 50%); top: var(--my, 50%); transform: translate(-50%, -50%);
+  opacity: 0; transition: opacity .35s; pointer-events: none; z-index: 0;
+}
+.adv-card:hover::after { opacity: 1; }
+.adv-card > * { position: relative; z-index: 1; }
+
 /* ═══ 校徽 ═══ */
 .brand-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(216,180,90,0.4); box-shadow: 0 0 18px rgba(216,180,90,0.25); flex: 0 0 auto; }
 .pre-logo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin: 0 auto 18px; border: 2px solid rgba(216,180,90,0.5); box-shadow: 0 0 40px rgba(216,180,90,0.35); animation: logoGlow 2.2s ease-in-out infinite; }
