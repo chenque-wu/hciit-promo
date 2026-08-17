@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>河南工业和信息化职业学院 · 匠心育人 智创未来</title>
+<meta name="description" content="河南工业和信息化职业学院官方宣传页。公办全日制高等职业院校，1975年建校，坐落于焦作。12个二级学院、59个专业，省双高专业群，产教融合培养大国工匠。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230a1428'/%3E%3Ctext x='32' y='42' font-size='30' font-weight='900' fill='%234cc9ff' text-anchor='middle'%3E工%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Noto+Serif+SC:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+<!-- 加载进度条 -->
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
+<!-- 全站光尘 -->
+<div class="global-dust" id="globalDust" aria-hidden="true"></div>
+
+<!-- 颗粒质感 -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- 自定义光标 -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor-label">SCROLL</span></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- ═══════════ 开场遮罩 ═══════════ -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-count" id="preCount">0</div>
+    <div class="pre-title" id="preTitle">HCIIT</div>
+    <div class="pre-words" id="preWords">匠心育人</div>
+    <div class="pre-line"><span class="pre-fill" id="preFill"></span></div>
+  </div>
+  <div class="pre-curtain pre-curtain-l" id="preCurtainL"></div>
+  <div class="pre-curtain pre-curtain-r" id="preCurtainR"></div>
+</div>
+
+<!-- ═══════════ 导航 ═══════════ -->
+<header class="site-head" id="siteHead">
+  <div class="head-inner">
+    <a class="brand" href="#top" data-lenis>
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="6" y="14" width="52" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M6 24 L58 24" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="32" cy="20" r="3.4" fill="currentColor"/>
+        <text x="32" y="50" font-size="16" font-weight="700" fill="currentColor" text-anchor="middle">1975</text>
+      </svg>
+      <span class="brand-name">河南工业和信息化职业学院<span class="brand-en">HENAN COLLEGE OF I&amp;IT</span></span>
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#about" data-lenis>学校概况</a>
+      <a href="#colleges" data-lenis>院系专业</a>
+      <a href="#features" data-lenis>特色育人</a>
+      <a href="#honors" data-lenis>荣誉成果</a>
+      <a href="#admission" data-lenis>招生</a>
+    </nav>
+    <a class="head-cta" href="https://www.hciit.edu.cn/zsxx/" target="_blank" rel="noopener">招生代号 6191</a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="hero-media" id="heroMedia">
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide is-on" data-slide="0">
+        <div class="hero-img-wrap"><img class="hero-img" src="assets/img/01-hero-mainbuilding.jpg" alt="河南工业和信息化职业学院主教学楼"></div>
+      </div>
+      <div class="hero-slide" data-slide="1">
+        <div class="hero-img-wrap"><img class="hero-img" src="assets/img/05-campus-building.jpg" alt="河南工业和信息化职业学院校园建筑"></div>
+      </div>
+      <div class="hero-slide" data-slide="2">
+        <div class="hero-img-wrap"><img class="hero-img" src="assets/img/06-playground.jpg" alt="河南工业和信息化职业学院操场"></div>
+      </div>
+    </div>
+    <div class="hero-shade"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-sweep" aria-hidden="true"></div>
+    <div class="hero-dust" aria-hidden="true"></div>
+  </div>
+
+  <div class="hero-watermark" id="heroWm" aria-hidden="true"><span>HCIIT</span></div>
+
+  <div class="hero-content" id="heroContent">
+    <p class="eyebrow hero-eyebrow">HCIIT · EST. 1975 · 河南省优质高等职业院校</p>
+    <h1 class="hero-title" id="heroTitle">
+      <span class="ht-line">河南工业和信息化</span>
+      <span class="ht-line gold-text">职业学院</span>
+    </h1>
+    <p class="hero-sub">公办全日制高职 · 扎根焦作 · 煤炭行业"黄埔军校" —— 以匠心育才，让技能发光。</p>
+    <div class="hero-actions">
+      <a class="btn btn-gold magnetic" href="#admission" data-lenis>了解招生</a>
+      <a class="btn btn-ghost magnetic" href="#about" data-lenis>探索校园</a>
+    </div>
+  </div>
+
+  <div class="hero-meta" aria-hidden="true">
+    <span>1975</span><span class="dot"></span><span>焦作</span><span class="dot"></span><span>公办全日制</span>
+  </div>
+
+  <a class="scroll-cue" href="#about" data-lenis aria-label="向下滚动">
+    <span class="cue-line"></span>
+    <span class="cue-text">SCROLL</span>
+  </a>
+</section>
+
+<!-- ═══════════ 无限跑马灯 ═══════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="mq-item">HCIIT</span><span class="mq-dot">◆</span>
+    <span class="mq-item">煤炭黄埔</span><span class="mq-dot">◆</span>
+    <span class="mq-item">匠心育人</span><span class="mq-dot">◆</span>
+    <span class="mq-item">智能制造</span><span class="mq-dot">◆</span>
+    <span class="mq-item">产教融合</span><span class="mq-dot">◆</span>
+    <span class="mq-item">技能报国</span><span class="mq-dot">◆</span>
+    <span class="mq-item">HCIIT</span><span class="mq-dot">◆</span>
+    <span class="mq-item">煤炭黄埔</span><span class="mq-dot">◆</span>
+    <span class="mq-item">匠心育人</span><span class="mq-dot">◆</span>
+    <span class="mq-item">智能制造</span><span class="mq-dot">◆</span>
+    <span class="mq-item">产教融合</span><span class="mq-dot">◆</span>
+    <span class="mq-item">技能报国</span><span class="mq-dot">◆</span>
+  </div>
+</div>
+
+<!-- ═══════════ 学校概况 ═══════════ -->
+<section class="section story" id="about">
+  <div class="story-inner container">
+    <div class="story-head">
+      <p class="eyebrow">01 —— 概况</p>
+      <h2 class="story-title" data-parallax-title>五十年匠心，<span class="gold-text">一脉相承</span></h2>
+    </div>
+    <div class="story-body">
+      <article class="story-block">
+        <figure class="story-figure">
+          <img src="assets/img/02-classroom.jpg" alt="河南工业和信息化职业学院教学楼与教室">
+          <span class="sb-year">1975</span>
+        </figure>
+        <div class="story-copy">
+          <h3>匠心之始</h3>
+          <p>1975 年，河南省煤矿学校在焦作创办，与煤炭工业血脉相连。五十年来，学校为能源与制造行业输送大批技术骨干，赢得煤炭行业<b>"黄埔军校"</b>的美誉。</p>
+        </div>
+      </article>
+      <article class="story-block">
+        <figure class="story-figure">
+          <img src="assets/img/08-campus-event.jpg" alt="河南工业和信息化职业学院校园活动">
+          <span class="sb-year">2000</span>
+        </figure>
+        <div class="story-copy">
+          <h3>行业积淀</h3>
+          <p>学校先后更名焦作煤炭工业学校、河南工程技术学校，2000 年获评<b>国家级重点中专</b>，办学实力跻身全国先进行列。</p>
+        </div>
+      </article>
+      <article class="story-block">
+        <figure class="story-figure">
+          <img src="assets/img/09-tech-lab.jpg" alt="河南工业和信息化职业学院实训">
+          <span class="sb-year">2013</span>
+        </figure>
+        <div class="story-copy">
+          <h3>升格高职</h3>
+          <p>2013 年，经河南省人民政府批准、教育部备案，学校独立设置河南工业和信息化职业学院，聚焦<b>工业和信息化</b>领域，开启高职教育新征程。</p>
+        </div>
+      </article>
+      <article class="story-block">
+        <figure class="story-figure">
+          <img src="assets/img/03-nev-lab.jpg" alt="比亚迪产业学院新能源汽车实训中心">
+          <span class="sb-year">2025 · 今天</span>
+        </figure>
+        <div class="story-copy">
+          <h3>智创未来</h3>
+          <p>省"双高"专业群双轮驱动，与<b>比亚迪、河南能源集团</b>共建产教融合共同体，金砖大赛<b>国赛金奖</b>，正阔步迈向高水平职业院校。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 院系专业 ═══════════ -->
+<section class="section colleges" id="colleges">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow">02 —— 院系专业</p>
+      <h2>面向产业，<span class="gold-text">12 大学院任你选择</span></h2>
+      <p class="specs-note">59 个专业 · 机电一体化专业群通过省"双高"验收 · 新能源汽车技术专业群立项省"双高"</p>
+    </header>
+    <div class="model-grid">
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">⛏️</span>
+          <h3>资源与安全学院</h3>
+          <p>智能开采技术、安全技术与管理等方向，守护能源产业安全发展。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">⚙️</span>
+          <h3>智能制造学院</h3>
+          <p>机电一体化、数控技术、工业设计等方向，对接智能工厂一线岗位。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">⚡</span>
+          <h3>电气工程学院</h3>
+          <p>电气自动化、新能源装备等方向，夯实"电"与"能"的基础能力。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">💻</span>
+          <h3>信息工程学院</h3>
+          <p>软件技术、云计算、大数据等方向，对接数字化转型一线岗位。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🤖</span>
+          <h3>人工智能学院</h3>
+          <p>人工智能、物联网、嵌入式技术应用，面向智能时代前沿产业。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🚄</span>
+          <h3>交通学院</h3>
+          <p>新能源汽车、轨道交通、无人机应用，驶向出行产业新蓝海。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🏗️</span>
+          <h3>土木工程学院</h3>
+          <p>建筑工程技术、工程造价等方向，筑基现代城市建设。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">📊</span>
+          <h3>财商（汽车工程）学院</h3>
+          <p>电子商务、物流管理、汽车检测等，商科与工科融合培养。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🎨</span>
+          <h3>体育艺术学院</h3>
+          <p>体育、音乐表演、公共艺术教育，文体并育全面发展。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">📖</span>
+          <h3>马克思主义学院</h3>
+          <p>思政铸魂、立德树人，为成长成才奠定思想根基。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🧭</span>
+          <h3>公共基础学院</h3>
+          <p>通识教育与基础素养培养，夯实终身学习之基。</p>
+        </div>
+      </article>
+      <article class="model-card tilt">
+        <div class="model-info">
+          <span class="model-ico">🌏</span>
+          <h3>继续教育学院</h3>
+          <p>继续教育与职业技能培训，服务终身学习型社会。</p>
+        </div>
+      </article>
+    </div>
+    <p class="specs-note" style="text-align:center;margin-top:26px">具体院系与专业设置，以学校官网为准：www.hciit.edu.cn</p>
+  </div>
+</section>
+
+<!-- ═══════════ 特色育人 ═══════════ -->
+<section class="section features" id="features">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow">03 —— 特色育人</p>
+      <h2>把课堂搬进车间，<span class="gold-text">把技能练成本领</span></h2>
+    </header>
+    <div class="cabin-grid">
+      <div class="feature-cell">
+        <span class="f-num">01</span>
+        <h4>产教融合</h4>
+        <p>与比亚迪、河南能源集团牵头成立全国产教融合共同体，共建产业学院，工学交替、"1+1+1"分段培养。</p>
+      </div>
+      <div class="feature-cell">
+        <span class="f-num">02</span>
+        <h4>双高专业群</h4>
+        <p>机电一体化专业群通过省"双高"验收，新能源汽车技术专业群成功立项省"双高"，专业实力省内领先。</p>
+      </div>
+      <div class="feature-cell">
+        <span class="f-num">03</span>
+        <h4>竞赛夺金</h4>
+        <p>2025 金砖国家技能大赛国赛金奖，近两年国家级竞赛奖项 21 项，以赛促学、以赛强技。</p>
+      </div>
+      <div class="feature-cell">
+        <span class="f-num">04</span>
+        <h4>国际合作</h4>
+        <p>与马来西亚拉曼理工大学合作办学，引入国际职教标准，培养具有国际视野的技术人才。</p>
+      </div>
+    </div>
+    <blockquote class="cabin-quote">
+      <p>于无声处，练一身真本领。</p>
+      <cite>—— 每一位从这里走出去的学子，都是学校最好的名片</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ═══════════ 荣誉成果 ═══════════ -->
+<section class="section honors" id="honors">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow">04 —— 荣誉成果</p>
+      <h2>实力，<span class="gold-text">用成绩说话</span></h2>
+    </header>
+    <div class="honor-grid">
+      <div class="honor-card h-gold">
+        <div class="h-icon">🏆</div>
+        <h3>金砖大赛国赛金奖</h3>
+        <p>2025"一带一路"暨金砖国家技能发展与技术创新大赛 · 工业互联网集成应用赛项教师赛</p>
+      </div>
+      <div class="honor-card">
+        <div class="h-icon">🥇</div>
+        <h3>国家一等奖</h3>
+        <p>2025 金砖大赛元宇宙 3D 数字内容设计创作赛项</p>
+      </div>
+      <div class="honor-card">
+        <div class="h-icon">📈</div>
+        <h3>国家级奖项 21 项</h3>
+        <p>近两年国家级竞赛奖项 21 项 · 省级奖项 100 余项</p>
+      </div>
+      <div class="honor-card">
+        <div class="h-icon">⭐</div>
+        <h3>河南省优质高职</h3>
+        <p>河南省优质高等职业院校 · 省"双高"专业群 ×2</p>
+      </div>
+      <div class="honor-card">
+        <div class="h-icon">🏅</div>
+        <h3>文明校园</h3>
+        <p>全国煤炭系统文明单位 · 省级文明校园 · 省级平安校园</p>
+      </div>
+      <div class="honor-card">
+        <div class="h-icon">🤝</div>
+        <h3>产教融合典范</h3>
+        <p>牵头成立全国新能源智能制造汽车行业产教融合共同体</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 校园图集 ═══════════ -->
+<section class="section campus" id="campus">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow">05 —— 校园图集</p>
+      <h2>这里的四季，<span class="gold-text">等你来写</span></h2>
+    </header>
+    <div class="gallery" id="gallery">
+      <div class="gallery-track" id="galleryTrack">
+        <figure class="g-card"><img src="assets/img/04-smart-lab.jpg" alt="智能制造实训"><figcaption>智能制造实训</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/07-computer-lab.jpg" alt="计算机实训"><figcaption>计算机实训课堂</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/10-student-activity.jpg" alt="学生风采"><figcaption>技能竞赛 · 学子风采</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/03-nev-lab.jpg" alt="新能源汽车实训"><figcaption>新能源汽车实训</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/05-campus-building.jpg" alt="校园风貌"><figcaption>校园风貌</figcaption></figure>
+        <figure class="g-card"><img src="assets/img/08-campus-event.jpg" alt="校园活动"><figcaption>多彩校园活动</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 数字背后 ═══════════ -->
+<section class="section specs" id="specs">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow">06 —— 数字背后</p>
+      <h2>数字之下，是岁月的力量</h2>
+    </header>
+    <div class="spec-grid" id="specGrid">
+      <div class="spec-cell"><span class="spec-value" data-count="17700">0</span><span class="spec-unit">全日制在校生 <i>+</i></span></div>
+      <div class="spec-cell"><span class="spec-value" data-count="12">0</span><span class="spec-unit">个二级学院</span></div>
+      <div class="spec-cell"><span class="spec-value" data-count="59">0</span><span class="spec-unit">个招生专业</span></div>
+      <div class="spec-cell"><span class="spec-value" data-count="157">0</span><span class="spec-unit">个校内实验实训室</span></div>
+      <div class="spec-cell"><span class="spec-value" data-count="475">0</span><span class="spec-unit">名专任教师</span></div>
+      <div class="spec-cell"><span class="spec-value" data-count="1975">0</span><span class="spec-unit">年 · 建校至今</span></div>
+    </div>
+    <p class="specs-note">数据来源：学校官网（更新至 2025 年 12 月），具体以学校官方发布为准。</p>
+  </div>
+</section>
+
+<!-- ═══════════ 招生 ═══════════ -->
+<section class="section reserve" id="admission">
+  <div class="reserve-bg" aria-hidden="true"><img src="assets/img/01-hero-mainbuilding.jpg" alt=""></div>
+  <div class="reserve-veil"></div>
+  <div class="container reserve-inner">
+    <p class="eyebrow">07 —— 招生信息</p>
+    <h2>从这里，<span class="gold-text">走向你的舞台</span></h2>
+    <p class="lead">公办高校 · 学费亲民 · 就业无忧<br>产教融合、毕业即上岗；技能立身、未来有保障。<br>单招、统招同步进行，欢迎报考河南工业和信息化职业学院。</p>
+    <div class="recruit-card">
+      <div class="rc-code"><span class="rc-label">河南省招生代号</span><span class="rc-num">6191</span><span class="rc-label">国标代码 12581</span></div>
+      <ul class="recruit-list">
+        <li><b>办学性质</b><span>公办 · 全日制专科 · 学制三年</span></li>
+        <li><b>招生热线</b><span>0391-8767021 / 8767022</span></li>
+        <li><b>学校地址</b><span>河南省焦作市新区碧莲路 801 号</span></li>
+        <li><b>邮政编码</b><span>454000</span></li>
+        <li><b>学校官网</b><span>www.hciit.edu.cn</span></li>
+      </ul>
+    </div>
+    <a class="btn btn-gold btn-lg magnetic" href="https://www.hciit.edu.cn/zsxx/" target="_blank" rel="noopener">前往官方招生信息网</a>
+    <p class="reserve-note">本页面为个人制作的宣传展示页，信息整理自学校官网及公开资料，最终以学校官方发布为准。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ 页脚 ═══════════ -->
+<footer class="site-foot">
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="6" y="14" width="52" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <path d="M6 24 L58 24" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="32" cy="20" r="3.4" fill="currentColor"/>
+        <text x="32" y="50" font-size="16" font-weight="700" fill="currentColor" text-anchor="middle">1975</text>
+      </svg>
+      <p>河南工业和信息化职业学院<br><span>自强博学 · 唯实创新</span></p>
+    </div>
+    <nav class="foot-nav" aria-label="页脚导航">
+      <div><h5>校园</h5><a href="#about" data-lenis>学校概况</a><a href="#campus" data-lenis>校园图集</a><a href="#honors" data-lenis>荣誉成果</a></div>
+      <div><h5>育人</h5><a href="#colleges" data-lenis>院系专业</a><a href="#features" data-lenis>特色育人</a><a href="#admission" data-lenis>招生信息</a></div>
+      <div><h5>联系</h5><a href="https://www.hciit.edu.cn" target="_blank" rel="noopener">学校官网</a><a href="#top" data-lenis>返回顶部</a></div>
+    </nav>
+  </div>
+  <div class="container foot-bottom">
+    <p>© 2026 宣传展示页 · 河南工业和信息化职业学院 · 焦作</p>
+    <p class="foot-en">CRAFTED WITH INDUSTRY &amp; CRAFT</p>
+  </div>
+</footer>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/SplitText.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
