@@ -367,6 +367,14 @@ html:not(.js) .preloader { display: none; }
 html:not(.js) .hero-slide:not(.is-on) { display: none; }
 html:not(.js) .scroll-cue, html:not(.js) .site-head { opacity: 1; }
 
+/* ═══ 图集悬停横滚 ═══ */
+#gallery.hovering { cursor: ew-resize; }
+@media (pointer: coarse) {
+  .gallery { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .gallery::-webkit-scrollbar { display: none; }
+  .gallery .gallery-track { transform: none !important; }
+}
+
 /* ═══ 移动端微调 ═══ */
 @media (max-width: 600px) {
   .hero-title { font-size: clamp(30px, 9.5vw, 46px); }

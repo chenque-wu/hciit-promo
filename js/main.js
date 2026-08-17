@@ -118,18 +118,31 @@
     });
   });
 
-  /* ────────── 图集横向滚动 ────────── */
-  var track = document.getElementById("galleryTrack");
-  if (track && track.scrollWidth > window.innerWidth) {
-    gsap.to(track, {
-      x: function () { return -(track.scrollWidth - window.innerWidth); },
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#gallery", start: "top 80%",
-        end: function () { return "+=" + (track.scrollWidth - window.innerWidth); },
-        scrub: 1
-      }
+  /* ────────── 图集：鼠标悬停时滚轮水平滑动 ────────── */
+  var gallery = document.getElementById("gallery");
+  var gTrack = document.getElementById("galleryTrack");
+  if (gallery && gTrack && !window.matchMedia("(pointer: coarse)").matches) {
+    var galX = 0;
+    var maxGalX = 0;
+    function updateMaxGal() { maxGalX = Math.max(0, gTrack.scrollWidth - gallery.clientWidth); }
+    updateMaxGal();
+    window.addEventListener("resize", updateMaxGal);
+    gallery.addEventListener("mouseenter", function () {
+      gallery.classList.add("hovering");
+      if (lenis) lenis.stop(); /* 悬停时锁定页面纵向滚动 */
     });
+    gallery.addEventListener("mouseleave", function () {
+      gallery.classList.remove("hovering");
+      if (lenis) lenis.start();
+    });
+    gallery.addEventListener("wheel", function (e) {
+      if (!gallery.classList.contains("hovering")) return;
+      e.preventDefault();
+      e.stopPropagation();
+      galX -= e.deltaY;
+      galX = Math.max(-maxGalX, Math.min(0, galX));
+      gsap.to(gTrack, { x: galX, duration: 0.7, ease: "power2.out" });
+    }, { passive: false });
   }
 
   /* ────────── 全站光尘 ────────── */
