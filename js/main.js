@@ -151,21 +151,42 @@
     });
   }
 
-  /* ────────── 每张图片：入场动画 + 持续 Ken Burns 动态 ────────── */
-  gsap.utils.toArray(".story-figure img, .env-grid img, .g-card img, .pano img, .about-img img").forEach(function (img, i) {
-    var tl = gsap.timeline({
-      defaults: { ease: "power2.out" },
-      scrollTrigger: { trigger: img.parentElement, start: "top 94%", once: true }
-    });
-    /* 入场：从放大模糊 → 清晰 */
-    tl.fromTo(img, { scale: 1.32, filter: "blur(8px)" }, { scale: 1, filter: "blur(0px)", duration: 1.5 });
-    /* 持续缓慢呼吸缩放（Ken Burns），每张节奏略有不同 */
-    tl.to(img, { scale: 1.15, duration: 6 + (i % 4) * 1.6, ease: "sine.inOut", yoyo: true, repeat: -1 }, "+=0.4");
+  /* ────────── 历史故事图：左右交替 3D 翻入 + 呼吸 + 滚动内视差 ────────── */
+  gsap.utils.toArray(".story-figure").forEach(function (fig, i) {
+    var img = fig.querySelector("img");
+    var L = i % 2 === 0;
+    gsap.fromTo(img,
+      { x: L ? -90 : 90, opacity: 0, rotateY: L ? 18 : -18, transformPerspective: 900, scale: 1.16 },
+      { x: 0, opacity: 1, rotateY: 0, scale: 1.12, duration: 1.35, ease: "power3.out",
+        scrollTrigger: { trigger: fig, start: "top 92%", once: true } });
+    gsap.to(img, { scale: 1.2, duration: 7 + (i % 3) * 2.2, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.6 });
+    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: fig, start: "top bottom", end: "bottom top", scrub: true } });
   });
 
-  /* ────────── 叙事图滚动内视差 ────────── */
-  gsap.utils.toArray(".story-figure img").forEach(function (img) {
-    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
+  /* ────────── 环境图：左/下/右 三向错位滑入 ────────── */
+  gsap.utils.toArray(".env-grid figure").forEach(function (fig, i) {
+    var img = fig.querySelector("img");
+    var dir = i % 3; /* 0左 1下 2右 */
+    var o = { opacity: 0, scale: 1.2 };
+    if (dir === 0) o.x = -70; else if (dir === 1) o.y = 70; else o.x = 70;
+    var t = { opacity: 1, scale: 1.1 };
+    if (dir === 0) t.x = 0; else if (dir === 1) t.y = 0; else t.x = 0;
+    gsap.fromTo(img, o, Object.assign({}, t, { duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: fig, start: "top 92%", once: true } }));
+    gsap.to(img, { scale: 1.15, duration: 6 + (i % 3) * 1.8, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
+  });
+
+  /* ────────── 校园全景：幕布式展开 ────────── */
+  gsap.fromTo(".pano img",
+    { clipPath: "inset(100% 0% 0% 0%)", scale: 1.25 },
+    { clipPath: "inset(0% 0% 0% 0%)", scale: 1.12, duration: 1.7, ease: "power3.inOut",
+      scrollTrigger: { trigger: ".pano", start: "top 88%", once: true } });
+  gsap.to(".pano img", { scale: 1.18, duration: 10, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 2.2 });
+
+  /* ────────── 图集卡片：交错升起 ────────── */
+  gsap.utils.toArray(".g-card").forEach(function (card, i) {
+    var img = card.querySelector("img");
+    gsap.fromTo(img, { y: 60, opacity: 0, scale: 1.22 }, { y: 0, opacity: 1, scale: 1.1, duration: 1.05, ease: "power3.out", delay: (i % 3) * 0.14, scrollTrigger: { trigger: card, start: "top 95%", once: true } });
+    gsap.to(img, { scale: 1.16, duration: 8 + (i % 4) * 1.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.3 });
   });
 
   /* ────────── 招生背景呼吸缩放 ────────── */
