@@ -6,6 +6,8 @@
 <title>河南工业和信息化职业学院 | 自强博学 · 唯实创新</title>
 <meta name="description" content="河南工业和信息化职业学院官方宣传首页。公办全日制高等职业院校，1975年建校，坐落于焦作，12个二级学院、59个专业，省双高专业群。">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 <script>
 /* Tailwind 主题扩展：学校代表色 */
 tailwind.config = {
@@ -131,6 +133,8 @@ body { -webkit-font-smoothing: antialiased; }
 
 <!-- ═══════════ Hero 首屏 ═══════════ -->
 <section id="top" class="relative min-h-screen bg-navy overflow-hidden spotlight flex items-center">
+  <!-- tsParticles 动态粒子背景 -->
+  <div id="particles" class="absolute inset-0 pointer-events-none z-0"></div>
   <!-- 装饰网格线 -->
   <div class="absolute inset-0 opacity-[0.05]" style="background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);background-size:64px 64px;"></div>
   <!-- 底部渐变 -->
@@ -144,7 +148,7 @@ body { -webkit-font-smoothing: antialiased; }
         河南工业和信息化<br><span class="text-blue-400">职业学院</span>
       </h1>
       <p class="hero-el mt-9 text-slate-300 font-light text-lg lg:text-xl leading-relaxed max-w-xl">
-        自强博学 · 唯实创新<br>
+        <span id="typed-slogan" class="text-blue-400 font-normal"></span><br>
         扎根太行山南麓，在焦作，练就一身真本领。
       </p>
       <div class="hero-el mt-11 flex flex-wrap gap-5">
@@ -392,6 +396,36 @@ body { -webkit-font-smoothing: antialiased; }
     menuBtn.addEventListener("click", function () { mobileMenu.classList.toggle("hidden"); });
     mobileMenu.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () { mobileMenu.classList.add("hidden"); });
+    });
+  }
+
+  /* ── Typed.js：slogan 打字机效果 ── */
+  var typedEl = document.getElementById("typed-slogan");
+  if (typedEl) {
+    if (window.Typed && !reduced) {
+      new Typed("#typed-slogan", {
+        strings: ["自强博学 · 唯实创新", "技能成才 · 匠心育人", "产教融合 · 毕业即上岗"],
+        typeSpeed: 70, backSpeed: 40, backDelay: 1900, loop: true, startDelay: 1900
+      });
+    } else {
+      typedEl.textContent = "自强博学 · 唯实创新";
+    }
+  }
+
+  /* ── tsParticles：hero 动态粒子背景 ── */
+  if (window.tsParticles && !reduced) {
+    tsParticles.load("particles", {
+      fpsLimit: 60,
+      particles: {
+        number: { value: 55, density: { enable: true, width: 1280, height: 800 } },
+        color: { value: ["#3b82f6", "#60a5fa", "#93c5fd", "#ffffff"] },
+        shape: { type: "circle" },
+        opacity: { value: { min: 0.12, max: 0.45 } },
+        size: { value: { min: 1, max: 2.6 } },
+        links: { enable: true, color: "#3b82f6", opacity: 0.08, distance: 140, width: 1 },
+        move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false }
+      },
+      detectRetina: true
     });
   }
 
