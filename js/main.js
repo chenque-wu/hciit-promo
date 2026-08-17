@@ -96,6 +96,14 @@
   /* ────────── Hero 轮播 ────────── */
   var slides = document.querySelectorAll(".hero-slide");
   var cur = 0;
+  if (slides.length) {
+    /* 第一张 hero 图也持续缓慢缩放 */
+    var firstImg = slides[0].querySelector(".hero-img");
+    if (firstImg) {
+      gsap.fromTo(firstImg, { scale: 1.25 }, { scale: 1.08, duration: 4, ease: "power2.out" });
+      gsap.to(firstImg, { scale: 1.16, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 4 });
+    }
+  }
   if (slides.length > 1) {
     setInterval(function () {
       var old = slides[cur];
@@ -104,7 +112,7 @@
       gsap.to(old, { opacity: 0, duration: 1.1, ease: "power2.out" });
       gsap.set(nw, { opacity: 1 });
       var img = nw.querySelector(".hero-img");
-      if (img) gsap.fromTo(img, { scale: 1.22 }, { scale: 1, duration: 2.8, ease: "power2.out" });
+      if (img) gsap.fromTo(img, { scale: 1.22 }, { scale: 1.06, duration: 3.2, ease: "power2.out" });
     }, 5200);
   }
 
@@ -143,13 +151,25 @@
     });
   }
 
-  /* ────────── 叙事图片内视差 ────────── */
-  gsap.utils.toArray(".story-figure img").forEach(function (img) {
-    gsap.fromTo(img, { yPercent: -8 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
+  /* ────────── 每张图片：入场动画 + 持续 Ken Burns 动态 ────────── */
+  gsap.utils.toArray(".story-figure img, .env-grid img, .g-card img, .pano img, .about-img img").forEach(function (img, i) {
+    var tl = gsap.timeline({
+      defaults: { ease: "power2.out" },
+      scrollTrigger: { trigger: img.parentElement, start: "top 94%", once: true }
+    });
+    /* 入场：从放大模糊 → 清晰 */
+    tl.fromTo(img, { scale: 1.32, filter: "blur(8px)" }, { scale: 1, filter: "blur(0px)", duration: 1.5 });
+    /* 持续缓慢呼吸缩放（Ken Burns），每张节奏略有不同 */
+    tl.to(img, { scale: 1.15, duration: 6 + (i % 4) * 1.6, ease: "sine.inOut", yoyo: true, repeat: -1 }, "+=0.4");
   });
 
-  /* ────────── 全景图模糊转清晰 ────────── */
-  gsap.fromTo(".pano img", { filter: "blur(10px) brightness(0.85)" }, { filter: "blur(0px) brightness(0.92)", duration: 1.6, ease: "power2.out", scrollTrigger: { trigger: ".pano", start: "top 88%", once: true } });
+  /* ────────── 叙事图滚动内视差 ────────── */
+  gsap.utils.toArray(".story-figure img").forEach(function (img) {
+    gsap.fromTo(img, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: img.parentElement, start: "top bottom", end: "bottom top", scrub: true } });
+  });
+
+  /* ────────── 招生背景呼吸缩放 ────────── */
+  gsap.to(".reserve-bg img", { scale: 1.12, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1 });
 
   /* ────────── 优势卡片光斑跟随鼠标 ────────── */
   document.querySelectorAll(".adv-card").forEach(function (card) {

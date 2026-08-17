@@ -407,6 +407,15 @@ html:not(.js) .scroll-cue, html:not(.js) .site-head { opacity: 1; }
 .adv-card:hover::after { opacity: 1; }
 .adv-card > * { position: relative; z-index: 1; }
 
+/* ═══ 图片 hover 金色光效 ═══ */
+.story-figure::after, .env-grid figure::after, .g-card::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: linear-gradient(135deg, rgba(216,180,90,0.3), transparent 55%);
+  opacity: 0; transition: opacity .45s;
+}
+.story-figure:hover::after, .env-grid figure:hover::after, .g-card:hover::after { opacity: 1; }
+.story-figure .sb-year, .g-card figcaption, .env-grid figcaption { z-index: 2; position: relative; }
+
 /* ═══ 校徽 ═══ */
 .brand-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(216,180,90,0.4); box-shadow: 0 0 18px rgba(216,180,90,0.25); flex: 0 0 auto; }
 .pre-logo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin: 0 auto 18px; border: 2px solid rgba(216,180,90,0.5); box-shadow: 0 0 40px rgba(216,180,90,0.35); animation: logoGlow 2.2s ease-in-out infinite; }
@@ -422,8 +431,7 @@ html:not(.js) .scroll-cue, html:not(.js) .site-head { opacity: 1; }
 .pano figcaption { position: absolute; left: 24px; bottom: 20px; z-index: 2; font-size: 14px; letter-spacing: 2px; color: var(--ink); text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
 .env-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .env-grid figure { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid rgba(216,180,90,0.14); }
-.env-grid img { width: 100%; height: clamp(180px, 24vw, 300px); object-fit: cover; transition: transform .6s var(--ease); }
-.env-grid figure:hover img { transform: scale(1.06); }
+.env-grid img { width: 100%; height: clamp(180px, 24vw, 300px); object-fit: cover; }
 .env-grid figcaption { position: absolute; left: 12px; bottom: 12px; font-size: 12px; letter-spacing: 2px; color: var(--ink); padding: 5px 12px; border-radius: 999px; background: rgba(5,10,20,0.7); border: 1px solid rgba(216,180,90,0.3); backdrop-filter: blur(6px); }
 @media (max-width: 700px) { .env-grid { grid-template-columns: 1fr; } }
 
