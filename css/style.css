@@ -392,3 +392,46 @@ html:not(.js) .scroll-cue, html:not(.js) .site-head { opacity: 1; }
   .recruit-list li { font-size: 13px; gap: 12px; }
   .honor-card, .model-card { padding: 26px 20px; }
 }
+
+/* ═══ 校徽 ═══ */
+.brand-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(216,180,90,0.4); box-shadow: 0 0 18px rgba(216,180,90,0.25); flex: 0 0 auto; }
+.pre-logo { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; margin: 0 auto 18px; border: 2px solid rgba(216,180,90,0.5); box-shadow: 0 0 40px rgba(216,180,90,0.35); animation: logoGlow 2.2s ease-in-out infinite; }
+@keyframes logoGlow { 0%,100% { box-shadow: 0 0 24px rgba(216,180,90,0.25); } 50% { box-shadow: 0 0 48px rgba(216,180,90,0.55); } }
+.hero-logo { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; margin: 0 auto 22px; border: 2px solid rgba(216,180,90,0.55); box-shadow: 0 0 44px rgba(216,180,90,0.4); }
+.foot-logo { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(216,180,90,0.4); flex: 0 0 auto; }
+
+/* ═══ 校园环境 ═══ */
+.campus-env { background: linear-gradient(to bottom, transparent, rgba(6,11,22,0.35) 25%, rgba(6,11,22,0.35) 75%, transparent); }
+.pano { position: relative; border-radius: 14px; overflow: hidden; margin-bottom: 22px; border: 1px solid rgba(216,180,90,0.18); }
+.pano img { width: 100%; height: clamp(280px, 46vw, 560px); object-fit: cover; filter: brightness(0.92); }
+.pano::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,10,20,0.65), transparent 55%); }
+.pano figcaption { position: absolute; left: 24px; bottom: 20px; z-index: 2; font-size: 14px; letter-spacing: 2px; color: var(--ink); text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+.env-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.env-grid figure { position: relative; border-radius: 12px; overflow: hidden; border: 1px solid rgba(216,180,90,0.14); }
+.env-grid img { width: 100%; height: clamp(180px, 24vw, 300px); object-fit: cover; transition: transform .6s var(--ease); }
+.env-grid figure:hover img { transform: scale(1.06); }
+.env-grid figcaption { position: absolute; left: 12px; bottom: 12px; font-size: 12px; letter-spacing: 2px; color: var(--ink); padding: 5px 12px; border-radius: 999px; background: rgba(5,10,20,0.7); border: 1px solid rgba(216,180,90,0.3); backdrop-filter: blur(6px); }
+@media (max-width: 700px) { .env-grid { grid-template-columns: 1fr; } }
+
+/* ═══ 办学优势 ═══ */
+.advantages { background: linear-gradient(to bottom, transparent, rgba(6,11,22,0.45) 30%, rgba(6,11,22,0.45) 70%, transparent); }
+.adv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.adv-card {
+  position: relative; border-radius: 14px; padding: 32px 28px; overflow: hidden;
+  background: linear-gradient(160deg, rgba(14,28,56,0.72), rgba(6,11,22,0.72));
+  border: 1px solid rgba(216,180,90,0.16);
+  backdrop-filter: blur(10px);
+  transition: transform .35s var(--ease), border-color .35s, box-shadow .35s;
+}
+.adv-card::before {
+  content: ""; position: absolute; inset: 0; border-radius: 14px; padding: 1px;
+  background: linear-gradient(135deg, rgba(216,180,90,0.55), transparent 40%, transparent 60%, rgba(76,201,255,0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .4s;
+}
+.adv-card:hover { transform: translateY(-5px); border-color: rgba(216,180,90,0.45); box-shadow: 0 18px 50px rgba(0,0,0,0.4); }
+.adv-card:hover::before { opacity: 1; }
+.adv-ico { font-size: 36px; display: block; margin-bottom: 16px; }
+.adv-card h3 { font-family: "Noto Serif SC", serif; font-size: 20px; margin-bottom: 12px; color: var(--gold-2); }
+.adv-card p { font-size: 14px; color: var(--muted); line-height: 1.9; }

@@ -71,7 +71,8 @@
   function playHero() {
     gsap.fromTo(".hero-watermark span", { opacity: 0, scale: 1.15 }, { opacity: 1, scale: 1, duration: 1.8, ease: "power2.out" });
     gsap.timeline({ defaults: { ease: "power3.out" } })
-      .fromTo(".hero-eyebrow", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.9 }, 0.1)
+      .fromTo(".hero-logo", { opacity: 0, scale: 0.6, y: -18 }, { opacity: 1, scale: 1, y: 0, duration: 1.1 }, 0.05)
+      .fromTo(".hero-eyebrow", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.9 }, 0.15)
       .fromTo(".ht-line", { opacity: 0, y: 74 }, { opacity: 1, y: 0, duration: 1.1, stagger: 0.14 }, 0.25)
       .fromTo(".hero-sub", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9 }, 0.75)
       .fromTo(".hero-actions", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.9 }, 0.9)
@@ -111,7 +112,7 @@
   });
 
   /* ────────── 滚动渐显 ────────── */
-  gsap.utils.toArray(".section-head, .story-block, .model-card, .feature-cell, .honor-card, .spec-cell, .g-card").forEach(function (el) {
+  gsap.utils.toArray(".section-head, .story-block, .model-card, .feature-cell, .honor-card, .spec-cell, .g-card, .adv-card, .env-grid figure, .pano").forEach(function (el) {
     gsap.fromTo(el, { opacity: 0, y: 54 }, {
       opacity: 1, y: 0, duration: 1.05, ease: "power3.out",
       scrollTrigger: { trigger: el, start: "top 88%", once: true }
