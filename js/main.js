@@ -172,7 +172,14 @@
     var t = { opacity: 1, scale: 1.1 };
     if (dir === 0) t.x = 0; else if (dir === 1) t.y = 0; else t.x = 0;
     gsap.fromTo(img, o, Object.assign({}, t, { duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: fig, start: "top 92%", once: true } }));
-    gsap.to(img, { scale: 1.15, duration: 6 + (i % 3) * 1.8, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
+    /* 持续动效三态：缩放 / 左右漂移 / 旋转 */
+    if (i % 3 === 0) {
+      gsap.to(img, { scale: 1.2, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
+    } else if (i % 3 === 1) {
+      gsap.to(img, { x: 18, duration: 4.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
+    } else {
+      gsap.to(img, { rotation: 1.8, scale: 1.14, duration: 6.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.4 });
+    }
   });
 
   /* ────────── 校园全景：幕布式展开 ────────── */
@@ -186,7 +193,12 @@
   gsap.utils.toArray(".g-card").forEach(function (card, i) {
     var img = card.querySelector("img");
     gsap.fromTo(img, { y: 60, opacity: 0, scale: 1.22 }, { y: 0, opacity: 1, scale: 1.1, duration: 1.05, ease: "power3.out", delay: (i % 3) * 0.14, scrollTrigger: { trigger: card, start: "top 95%", once: true } });
-    gsap.to(img, { scale: 1.16, duration: 8 + (i % 4) * 1.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.3 });
+    /* 持续动效两态：缩放 / 漂移 */
+    if (i % 2 === 0) {
+      gsap.to(img, { scale: 1.16, duration: 9, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.3 });
+    } else {
+      gsap.to(img, { x: 14, duration: 5.5, ease: "sine.inOut", yoyo: true, repeat: -1, delay: 1.3 });
+    }
   });
 
   /* ────────── 招生背景呼吸缩放 ────────── */
